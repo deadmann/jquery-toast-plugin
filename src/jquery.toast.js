@@ -1,4 +1,5 @@
 // jQuery toast plugin created by Kamran Ahmed copyright MIT license 2015
+// TODO: Remove this line -- Enforce Automation to Run and create dist version of files.
 if ( typeof Object.create !== 'function' ) {
     Object.create = function( obj ) {
         function F() {}

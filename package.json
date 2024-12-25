@@ -29,7 +29,30 @@
     }
   ],
   "devDependencies": {
+    "eslint": "^9.17.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.11",
+    "minify": "^12.0.0",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "npm run minify",
+      "git add dist"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "npm run minify",
+      "git add dist"
+    ]
   },
   "scripts": {
+    "lint:js": "eslint . --ext .js",
+    "lint:css": "stylelint '**/*.css'",
+    "lint": "npm run lint:js && npm run lint:css",
+    "minify": "node scripts/minify.js",
+    "prepare": "husky install"
   }
 }
