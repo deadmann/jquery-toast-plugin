@@ -82,7 +82,7 @@ if ( typeof Object.create !== 'function' ) {
             if ( this.options.textColor !== false ) {
                 this._toastEl.css("color", this.options.textColor);
             };
-
+            
             if ( this.options.textAlign ) {
                 this._toastEl.css('text-align', this.options.textAlign);
             } else {
@@ -113,7 +113,7 @@ if ( typeof Object.create !== 'function' ) {
         },
 
         position: function () {
-            this.options.position = this.options.direction === 'rtl' ? 'bottom-right' : 'bottom-left'
+            this.options.position = this.options.position || (this.options.direction === 'rtl' ? 'bottom-right' : 'bottom-left')
             if ( ( typeof this.options.position === 'string' ) && ( $.inArray( this.options.position, this._positionClasses) !== -1 ) ) {
 
                 if ( this.options.position === 'bottom-center' ) {
