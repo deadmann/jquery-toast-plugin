@@ -1,0 +1,8 @@
+﻿{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,  // Enforce 2 spaces indentation for CSS files
+    "no-duplicate-selectors": true,  // Prevent duplicate selectors
+    "color-no-invalid-hex": true     // Ensure only valid hex colors are used
+  }
+}
