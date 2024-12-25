@@ -1,0 +1,14 @@
+﻿# Node.js dependencies
+node_modules/
+
+# npm log files
+npm-debug.log*
+
+# Husky lock files
+.husky/_/husky.sh
+
+## Compiled JS files, minified files, and build outputs
+#dist/
+
+# Logs and temporary files
+*.log
