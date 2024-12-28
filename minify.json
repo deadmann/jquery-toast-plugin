@@ -1,13 +1,12 @@
-﻿{
+{
   "js": {
-    "type": "putout",
-    "putout": {
-      "quote": "'",
-      "mangle": true,
-      "mangleClassNames": true,
-      "removeUnusedVariables": true,
-      "removeConsole": false,
-      "removeUselessSpread": true
+    "type": "terser",
+    "terser": {
+      "compress": {
+        "reduce_vars": false,
+        "unsafe_undefined": false
+      },
+      "mangle": true
     }
   },
   "img": {

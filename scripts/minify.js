@@ -13,6 +13,16 @@ if (!fs.existsSync(outputDir)) {
 // Supported file extensions for minification
 const supportedExtensions = [".js", ".css"];
 
+// Load minification configuration from minify.json
+let minifyConfig = {};
+try {
+    // NOTE: UTF-8 BOM character is not supported, make sure UTF-8 NO BOM is used
+    minifyConfig = JSON.parse(fs.readFileSync("./minify.json", "utf8"));
+    console.log("Loaded minify config:", minifyConfig);
+} catch (error) {
+    console.warn("Could not load minify.json, proceeding with defaults. Error message: " + error.message);
+}
+
 // Function to minify files
 const processFile = async (file) => {
     try {
@@ -21,7 +31,9 @@ const processFile = async (file) => {
 
         const inputFile = path.join(inputDir, file);
         const outputFile = path.join(outputDir, file.replace(ext, `.min${ext}`));
-        const minifiedContent = await minify(inputFile);
+
+        // Pass the minifyConfig explicitly to the minify function
+        const minifiedContent = await minify(inputFile, minifyConfig);
 
         fs.writeFileSync(outputFile, minifiedContent);
         console.log(`Minified: ${outputFile}`);
